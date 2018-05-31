@@ -45,4 +45,11 @@ public class SaleItemTest {
 
         assertEquals(saleItemFirst, saleItemSecond);
     }
+
+    @Test
+    public void testTotal() {
+        SaleItem saleItem = SaleItem.of(ID.of(1L), 14, Price.of(BigDecimal.TEN));
+
+        assertEquals(new BigDecimal(14 * 10), saleItem.getTotal());
+    }
 }

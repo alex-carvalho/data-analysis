@@ -1,6 +1,6 @@
 package br.com.ac.model;
 
-import java.util.List;
+import java.math.BigDecimal;
 import java.util.Objects;
 
 /**
@@ -10,21 +10,20 @@ public class Sale implements Model {
 
     private final ID id;
     private final String salesmanName;
-    private final List<SaleItem> items;
+    private final SaleItems saleItems;
 
-    private Sale(ID id, String salesmanName, List<SaleItem> items) {
+    private Sale(ID id, String salesmanName, SaleItems saleItems) {
         this.id = id;
         this.salesmanName = salesmanName;
-        this.items = items;
+        this.saleItems = saleItems;
     }
 
-    public static Sale of(ID id, String salesmanName, List<SaleItem> items) {
+    public static Sale of(ID id, String salesmanName, SaleItems saleItems) {
         Objects.requireNonNull(id, "Id can not be null!");
         Objects.requireNonNull(salesmanName, "salesmanName can not be null!");
-        Objects.requireNonNull(items, "items can not be null!");
+        Objects.requireNonNull(saleItems, "saleItems can not be null!");
         if (salesmanName.trim().isEmpty()) throw new IllegalArgumentException("Salesman name can not be empty!");
-        if (items.isEmpty()) throw new IllegalArgumentException("Sale need items!");
-        return new Sale(id, salesmanName, items);
+        return new Sale(id, salesmanName, saleItems);
     }
 
     public ID getId() {
@@ -35,8 +34,12 @@ public class Sale implements Model {
         return salesmanName;
     }
 
-    public List<SaleItem> getItems() {
-        return items;
+    public SaleItems getSaleItems() {
+        return saleItems;
+    }
+
+    public BigDecimal getTotal() {
+        return saleItems.getTotal();
     }
 
     @Override
@@ -57,7 +60,7 @@ public class Sale implements Model {
         return "Sale{" +
                 "id=" + id +
                 ", salesmanName='" + salesmanName + '\'' +
-                ", items=" + items +
+                ", items=" + saleItems +
                 '}';
     }
 }

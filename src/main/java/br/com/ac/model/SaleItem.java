@@ -1,5 +1,6 @@
 package br.com.ac.model;
 
+import java.math.BigDecimal;
 import java.util.Objects;
 
 /**
@@ -36,6 +37,10 @@ public class SaleItem implements Model {
 
     public Price getPrice() {
         return price;
+    }
+
+    public BigDecimal getTotal() {
+        return price.getValue().multiply(new BigDecimal(quantity));
     }
 
     @Override

@@ -33,9 +33,9 @@ public class SaleParserTest {
 
         assertEquals(ID.of(10L), sale.getId());
         assertEquals("Diego", sale.getSalesmanName());
-        assertEquals(1, sale.getItems().size());
+        assertEquals(1, sale.getSaleItems().size());
 
-        SaleItem saleItem = sale.getItems().get(0);
+        SaleItem saleItem = sale.getSaleItems().getFirst();
 
         assertEquals(ID.of(1L), saleItem.getId());
         assertEquals(new Integer(10), saleItem.getQuantity());
@@ -49,6 +49,6 @@ public class SaleParserTest {
 
         assertEquals(new Long(10), sale.getId().getValue());
         assertEquals("Diego", sale.getSalesmanName());
-        assertEquals(3, sale.getItems().size());
+        assertEquals(3, sale.getSaleItems().size());
     }
 }

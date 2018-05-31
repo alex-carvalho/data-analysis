@@ -5,7 +5,6 @@ import org.junit.Test;
 import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
@@ -36,7 +35,7 @@ public class SaleTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void testEmptyItems() {
-        Sale.of(ID.of(1L), "A", Collections.emptyList());
+        Sale.of(ID.of(1L), "A", SaleItems.of(Collections.emptyList()));
     }
 
     @Test
@@ -47,8 +46,18 @@ public class SaleTest {
         assertEquals(saleFirst, saleSecond);
     }
 
-    private List<SaleItem> getListSaleItemTest() {
-        return Arrays.asList(SaleItem.of(ID.of(1L), 1, Price.of(BigDecimal.ONE)));
+    @Test
+    public void testTotalSale() {
+        SaleItem saleItem1 = SaleItem.of(ID.of(1L), 5, Price.of(new BigDecimal("2")));
+        SaleItem saleItem2 = SaleItem.of(ID.of(1L), 5, Price.of(BigDecimal.TEN));
+
+        Sale sale = Sale.of(ID.of(1L), "A", SaleItems.of(Arrays.asList(saleItem1, saleItem2)));
+
+        assertEquals(new BigDecimal((5 * 2) + (5 * 10)), sale.getTotal());
+    }
+
+    private SaleItems getListSaleItemTest() {
+        return SaleItems.of(Arrays.asList(SaleItem.of(ID.of(1L), 1, Price.of(BigDecimal.ONE))));
     }
 
 }

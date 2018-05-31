@@ -3,6 +3,7 @@ package br.com.ac.parser;
 import br.com.ac.model.ID;
 import br.com.ac.model.Sale;
 import br.com.ac.model.SaleItem;
+import br.com.ac.model.SaleItems;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,7 +31,7 @@ public class SaleParser implements Parser<Sale> {
         List<SaleItem> items = parseItens(tokens.nextToken());
         String salesmanName = tokens.nextToken();
 
-        return Sale.of(id, salesmanName, items);
+        return Sale.of(id, salesmanName, SaleItems.of(items));
     }
 
     private List<SaleItem> parseItens(String token) {
