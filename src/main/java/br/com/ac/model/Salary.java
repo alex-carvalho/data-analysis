@@ -15,7 +15,7 @@ public class Salary {
     }
 
     public static Salary of(BigDecimal value) {
-        Objects.requireNonNull(value);
+        Objects.requireNonNull(value, "salary can not be null!");
         if (value.compareTo(BigDecimal.ZERO) < 0) throw new IllegalArgumentException("Salary must be >= 0!");
         return new Salary(value);
     }

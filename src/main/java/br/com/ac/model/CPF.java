@@ -14,8 +14,8 @@ public class CPF {
     }
 
     public static CPF of(String cpf) {
-        Objects.requireNonNull(cpf);
-        if(cpf.trim().isEmpty()) throw new IllegalArgumentException("CPF can not be empty!");
+        Objects.requireNonNull(cpf, "cpf can not be null!");
+        if (cpf.trim().isEmpty()) throw new IllegalArgumentException("CPF can not be empty!");
 
         return new CPF(cpf);
     }

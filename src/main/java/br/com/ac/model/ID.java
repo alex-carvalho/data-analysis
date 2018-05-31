@@ -14,7 +14,7 @@ public class ID {
     }
 
     public static ID of(Long id) {
-        Objects.requireNonNull(id);
+        Objects.requireNonNull(id, "id can not be null!");
         if (id <= 0) throw new IllegalArgumentException("Id must be > 0!");
 
         return new ID(id);

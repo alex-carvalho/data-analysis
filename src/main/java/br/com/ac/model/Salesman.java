@@ -5,7 +5,7 @@ import java.util.Objects;
 /**
  * @author Alex Carvalho
  */
-public class Salesman {
+public class Salesman implements Model {
 
     private CPF cpf;
     private String name;
@@ -17,11 +17,11 @@ public class Salesman {
         this.salary = salary;
     }
 
-    public static Salesman of(CPF cpf, String name, Salary salary){
-        Objects.requireNonNull(cpf);
-        Objects.requireNonNull(name);
-        Objects.requireNonNull(salary);
-        if(name.trim().isEmpty()) throw new IllegalArgumentException("Salesman name can not be empty!");
+    public static Salesman of(CPF cpf, String name, Salary salary) {
+        Objects.requireNonNull(cpf, "cpf can not be null!");
+        Objects.requireNonNull(name, "name can not be null!");
+        Objects.requireNonNull(salary, "salary can not be null!");
+        if (name.trim().isEmpty()) throw new IllegalArgumentException("Salesman name can not be empty!");
 
         return new Salesman(cpf, name, salary);
     }

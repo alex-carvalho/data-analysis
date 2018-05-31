@@ -14,8 +14,8 @@ public class CNPJ {
     }
 
     public static CNPJ of(String cnpj) {
-        Objects.requireNonNull(cnpj);
-        if(cnpj.trim().isEmpty()) throw new IllegalArgumentException("CNPJ can not be empty!");
+        Objects.requireNonNull(cnpj, "cnpj can not be null!");
+        if (cnpj.trim().isEmpty()) throw new IllegalArgumentException("CNPJ can not be empty!");
 
         return new CNPJ(cnpj);
     }

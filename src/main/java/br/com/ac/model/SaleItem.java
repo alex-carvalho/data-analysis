@@ -5,7 +5,7 @@ import java.util.Objects;
 /**
  * @author Alex Carvalho
  */
-public class SaleItem {
+public class SaleItem implements Model {
 
     private final ID id;
     private final Integer quantity;
@@ -18,9 +18,9 @@ public class SaleItem {
     }
 
     public static SaleItem of(ID id, Integer quantity, Price price) {
-        Objects.requireNonNull(id);
-        Objects.requireNonNull(price);
-        Objects.requireNonNull(quantity);
+        Objects.requireNonNull(id, "id can not be null!");
+        Objects.requireNonNull(price, "price can not be null!");
+        Objects.requireNonNull(quantity, "quantity can not be null!");
         if (quantity <= 0) throw new IllegalArgumentException("Salary must be > 0!");
 
         return new SaleItem(id, quantity, price);

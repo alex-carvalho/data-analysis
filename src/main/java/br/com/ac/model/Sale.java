@@ -6,7 +6,7 @@ import java.util.Objects;
 /**
  * @author Alex Carvalho
  */
-public class Sale {
+public class Sale implements Model {
 
     private final ID id;
     private final String salesmanName;
@@ -19,9 +19,9 @@ public class Sale {
     }
 
     public static Sale of(ID id, String salesmanName, List<SaleItem> items) {
-        Objects.requireNonNull(id);
-        Objects.requireNonNull(salesmanName);
-        Objects.requireNonNull(items);
+        Objects.requireNonNull(id, "Id can not be null!");
+        Objects.requireNonNull(salesmanName, "salesmanName can not be null!");
+        Objects.requireNonNull(items, "items can not be null!");
         if (salesmanName.trim().isEmpty()) throw new IllegalArgumentException("Salesman name can not be empty!");
         if (items.isEmpty()) throw new IllegalArgumentException("Sale need items!");
         return new Sale(id, salesmanName, items);
