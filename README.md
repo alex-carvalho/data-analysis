@@ -1,4 +1,6 @@
 # Data Analysis
+[![Build Status](https://travis-ci.org/alex-carvalho/data-analysis.svg?branch=master)](https://travis-ci.org/alex-carvalho/data-analysis)
+[![codecov](https://codecov.io/gh/alex-carvalho/data-analysis/branch/master/graph/badge.svg)](https://codecov.io/gh/alex-carvalho/data-analysis)
 
 Spring boot app read and process file data.
 
