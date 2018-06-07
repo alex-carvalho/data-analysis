@@ -24,6 +24,7 @@ jacocoTestReport {
     reports {
         html.destination file("${buildDir}/jacocoHtml")
         xml.enabled true
+        xml.destination file("${buildDir}/reports/jacoco/report.xml")
     }
 }
 
