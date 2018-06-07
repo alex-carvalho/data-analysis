@@ -1,6 +1,7 @@
 # Data Analysis
 [![Build Status](https://travis-ci.org/alex-carvalho/data-analysis.svg?branch=master)](https://travis-ci.org/alex-carvalho/data-analysis)
 [![codecov](https://codecov.io/gh/alex-carvalho/data-analysis/branch/master/graph/badge.svg)](https://codecov.io/gh/alex-carvalho/data-analysis)
+[![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=br.com.ac:data-analysis&metric=alert_status)](https://sonarcloud.io/dashboard/index/br.com.ac:data-analysis)
 
 Spring boot app read and process file data.
 
